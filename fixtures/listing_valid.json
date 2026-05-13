@@ -1,0 +1,32 @@
+{
+  "address": "14 Railton Road",
+  "postcode": "SE24 0JN",
+  "price": 575000,
+  "property_type": "terraced",
+  "bedrooms": 3,
+  "bathrooms": 1,
+  "tenure": "freehold",
+  "epc_rating": "D",
+  "council_tax_band": "E",
+  "description": "A well-presented three-bedroom Victorian terraced house in Herne Hill, SE24. The property is arranged over three floors and benefits from a private south-facing rear garden. The ground floor comprises a bay-fronted reception room, a second reception room, and a kitchen-diner opening to the garden. The first floor provides two double bedrooms and a family bathroom. The top floor offers a further double bedroom. Gas central heating throughout. The property is conveniently situated for Herne Hill station (approximately 0.3 miles) and Brixton town centre. Council tax band E. EPC rating D. Freehold.",
+  "features": [
+    "Gas central heating",
+    "Double glazing throughout",
+    "Private south-facing rear garden",
+    "Victorian period features retained",
+    "Herne Hill and Brixton stations nearby"
+  ],
+  "parking": "On-street parking — permit zone TL",
+  "utilities": {
+    "gas": "mains",
+    "electric": "mains",
+    "water": "mains",
+    "drainage": "mains sewer"
+  },
+  "source_evidence": [
+    "HMLR title register — freehold confirmed",
+    "EPC certificate ref: 9876-5432-1000-0000-0000, issued 2023-04-12",
+    "Valuation Office Agency — council tax band E confirmed"
+  ],
+  "additional_notes": "Seller has lived in the property for 12 years. No known disputes or alterations requiring planning permission."
+}

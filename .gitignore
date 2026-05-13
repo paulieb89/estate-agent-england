@@ -1,0 +1,30 @@
+# Secrets and local config
+.env
+.env.local
+.env.*.local
+*.local.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Credentials — never commit
+*.pem
+*.key
+*.crt
+credentials.json
+secrets.json

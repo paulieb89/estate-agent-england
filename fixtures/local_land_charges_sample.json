@@ -1,0 +1,40 @@
+{
+  "results": [
+    {
+      "postcode": "SE24 0JN",
+      "uprn": "100021005432",
+      "charges": [
+        {
+          "charge_type": "Financial charge",
+          "registration_date": "2019-03-14",
+          "description": "Lambeth Council improvement grant — drainage works. Charge amount: £0 (discharged).",
+          "originating_authority": "London Borough of Lambeth"
+        }
+      ]
+    },
+    {
+      "postcode": "SW9 8NN",
+      "uprn": "100021888417",
+      "charges": [
+        {
+          "charge_type": "Planning restriction",
+          "registration_date": "2005-07-22",
+          "description": "Article 4 Direction — removal of permitted development rights for roof alterations, extensions, and satellite dishes within the Brixton Conservation Area.",
+          "originating_authority": "London Borough of Lambeth"
+        },
+        {
+          "charge_type": "Listed building",
+          "registration_date": "1987-01-01",
+          "description": "Grade II Listed Building — Town and Country Planning (Listed Buildings and Conservation Areas) Act 1990.",
+          "originating_authority": "Historic England"
+        }
+      ]
+    },
+    {
+      "postcode": "SE5 9NR",
+      "uprn": "100022001234",
+      "charges": []
+    }
+  ],
+  "caveat": "This fixture data is illustrative only. A local land charges search does not replace a full conveyancing search. Live HMLR LLC integration requires formal onboarding."
+}

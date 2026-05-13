@@ -1,21 +1,31 @@
 {
+  "name": "estate-agent-england-marketplace",
+  "owner": {
+    "name": "BOUCH",
+    "email": "paulboucherat@gmail.com"
+  },
   "plugins": [
     {
       "name": "estate-agent-england",
+      "source": {
+        "source": "github",
+        "repo": "paulieb89/estate-agent-england"
+      },
       "description": "Compliance-aware property listing, market-comparison, and seller-onboarding tools for residential estate agents in England. Reviews listings for material information gaps and risky claims, drafts professional copy, summarises HMLR comparables, and generates seller onboarding checklists. Fixture-first, never legal advice.",
       "version": "0.1.0",
-      "author": "BOUCH",
-      "homepage": "https://bouch.dev",
+      "author": {
+        "name": "BOUCH"
+      },
       "license": "MIT",
-      "keywords": ["estate-agent", "property", "england", "compliance", "material-information", "hmlr", "epc"],
-      "skills": [
-        "property-listing-review",
-        "property-listing-draft",
-        "market-comparable-summary",
-        "seller-onboarding-checklist",
-        "buyer-enquiry-response"
-      ],
-      "agents": ["uk-property-compliance-reviewer"]
+      "keywords": [
+        "estate-agent",
+        "property",
+        "england",
+        "compliance",
+        "material-information",
+        "hmlr",
+        "epc"
+      ]
     }
   ]
 }

@@ -52,6 +52,12 @@ Compare the returned certificate against the listing's stated EPC rating/band. F
 
 If `property_epc` returns no result, note this in Missing Information; do not infer the EPC rating.
 
+If the property-shared MCP server is unavailable, times out, or the tool is not exposed:
+- Do not retry repeatedly.
+- Note in Human Review Notes that live EPC verification was unavailable.
+- Mark EPC as "unknown — needs verification".
+- Do not infer the EPC rating or band from any other source.
+
 ### Step 2 — Run the Validator (JSON input only)
 
 If the input is a JSON file, run:

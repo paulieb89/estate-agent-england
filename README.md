@@ -75,9 +75,11 @@ uv run scripts/validate_listing.py fixtures/listing_valid.json --pretty
 # Draft a listing
 "Draft a property listing from these seller notes: [paste notes]"
 
-# Summarise comparables
-"Summarise comparable sold prices for 3-bed terraced houses in SW9"
-uv run scripts/summarise_price_paid.py --file data.csv --outcode SW9 --property-type T --pretty
+# Summarise comparables — postcode workflow (live MCP data)
+"Summarise sold comparables for 3-bed terraced houses in SW9 8NN"
+
+# Summarise comparables — CSV fallback (offline / user-supplied file)
+uv run scripts/summarise_price_paid.py --file fixtures/price_paid_sample.csv --outcode SW9 --property-type T --pretty
 
 # Generate seller checklist
 "Create a seller onboarding checklist for [address], [property type], [tenure]"
@@ -99,22 +101,23 @@ compliance-sensitive outputs. It can also be invoked manually:
 
 ---
 
-## Credentials and environment variables
+## Runtime
 
-The plugin defaults to **fixture mode** — no credentials needed for installation or testing.
+The plugin uses the hosted **property-shared** MCP server by default — no credentials required:
 
-To use live EPC lookup, set these environment variables:
-
-```bash
-export EPC_API_EMAIL=your-registered-email@example.com
-export EPC_API_KEY=your-api-key
-export ESTATE_AGENT_PLUGIN_MODE=live
+```json
+// .mcp.json
+{ "mcpServers": { "property-shared": { "type": "http", "url": "https://property-shared.fly.dev/mcp" } } }
 ```
 
-Register at [epc.opendatacommunities.org](https://epc.opendatacommunities.org) (free).
+The hosted server provides:
+- HMLR Price Paid comparable data (`property_comps`, `ppd_transactions`)
+- EPC register lookups (`property_epc`)
+- Rightmove listing data (`rightmove_search`, `rightmove_listing`)
+- Rental and yield analysis (`rental_analysis`, `property_yield`)
 
-HMLR Local Land Charges live integration requires formal HMLR onboarding (client ID + secret).
-See `.env.example` for all environment variables.
+Local validation scripts remain available for offline work and CSV fallback.
+The local FastMCP server was removed in v0.1.1 — the `mcp/` directory no longer exists.
 
 ---
 
@@ -179,12 +182,6 @@ uv run scripts/epc_lookup_stub.py --postcode SE24 0JN --pretty
 uv run scripts/local_land_charges_stub.py --postcode SW9 8NN --pretty
 ```
 
-### Run the MCP server (development)
-
-```bash
-uv run python mcp/estate_agent_data_server.py
-```
-
 ---
 
 ## Repository structure
@@ -208,18 +205,18 @@ estate-agent-england/
     data-sources.md
     output-templates.md
     red-lines.md
+    property-shared-tools.json
   scripts/
     validate_listing.py
     summarise_price_paid.py
     check_fixture_integrity.py
     epc_lookup_stub.py
     local_land_charges_stub.py
-  mcp/
-    estate_agent_data_server.py
   tests/
     test_validate_listing.py
     test_summarise_price_paid.py
     test_fixture_integrity.py
+    test_format_integrity.py
   fixtures/
     listing_valid.json
     listing_missing_material_info.json

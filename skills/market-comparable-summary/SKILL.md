@@ -59,6 +59,13 @@ The response includes: `sample_size`, `median_price`, `mean_price`, `p25`, `p75`
 If `sample_size < 5`, widen `search_level` to `"district"` or extend `months` before reporting.
 Always state the `search_level` used in the output.
 
+**If property-shared is unavailable** (server error, timeout, or tool not exposed):
+- Do not retry repeatedly.
+- Fall back to Path B if the user has supplied a CSV file; otherwise acknowledge the gap.
+- State clearly in the output that live data was unavailable.
+- Mark all comparable figures as "unknown — needs verification".
+- Do not infer or estimate comparable prices, yields, or rental figures.
+
 ### Step 3 — Optional enrichment
 
 For investment or rental context, also call:

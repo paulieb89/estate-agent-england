@@ -1,11 +1,14 @@
 """Format integrity checks — prevents minified/collapsed file commits.
 
 Checks that .py, .md, .toml, and .json files are not minified (single-line or
-near-empty). Also validates that JSON and TOML files parse correctly.
+near-empty). Also validates that JSON and TOML files parse correctly, that
+.mcp.json points to the expected hosted MCP server, and that every MCP tool
+name referenced in a skill exists in the frozen property-shared contract.
 """
 from __future__ import annotations
 
 import json
+import re
 import tomllib
 from pathlib import Path
 
@@ -119,3 +122,34 @@ def test_toml_files_not_minified():
         assert len(lines) >= 5, (
             f"{path.relative_to(PLUGIN_ROOT)} appears minified or near-empty ({len(lines)} lines)"
         )
+
+
+# ---------------------------------------------------------------------------
+# MCP contract
+# ---------------------------------------------------------------------------
+
+def test_mcp_config_points_to_property_shared():
+    config = json.loads((PLUGIN_ROOT / ".mcp.json").read_text())
+    server = config["mcpServers"]["property-shared"]
+    assert server["type"] == "http"
+    assert server["url"].startswith("https://property-shared.fly.dev/")
+
+
+# Matches tool invocations — name followed by `(` — to avoid false positives
+# from parameter names like `property_type` that share the prefix.
+_MCP_TOOL_CALL_PATTERN = re.compile(
+    r"\b((?:property|ppd|rental|rightmove)_[a-z_]+)\s*\("
+)
+
+
+def test_skill_mcp_tools_in_contract():
+    contract_path = PLUGIN_ROOT / "references" / "property-shared-tools.json"
+    contract_tools = set(json.loads(contract_path.read_text()))
+    for path in PLUGIN_ROOT.glob("skills/*/SKILL.md"):
+        content = path.read_text()
+        for match in _MCP_TOOL_CALL_PATTERN.finditer(content):
+            tool_name = match.group(1)
+            assert tool_name in contract_tools, (
+                f"{path.parent.name}/SKILL.md references MCP tool '{tool_name}' "
+                f"not in references/property-shared-tools.json"
+            )

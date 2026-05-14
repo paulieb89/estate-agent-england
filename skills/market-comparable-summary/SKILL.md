@@ -8,7 +8,7 @@ description: >
   sold-price evidence using live HMLR Price Paid Data via the property-shared MCP server or a
   user-supplied CSV file, clearly distinguishing sold prices from asking prices, and including data
   range, sample size, and limitations.
-version: 0.1.1
+version: 0.1.2
 ---
 
 # Market Comparable Summary

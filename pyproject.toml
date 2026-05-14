@@ -1,6 +1,6 @@
 [project]
 name = "estate-agent-england"
-version = "0.1.1"
+version = "0.1.2"
 description = "UK estate agent compliance plugin — scripts and validation tools"
 requires-python = ">=3.12"
 dependencies = [

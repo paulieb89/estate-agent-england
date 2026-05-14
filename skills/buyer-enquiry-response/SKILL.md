@@ -7,7 +7,7 @@ description: >
   what should I say". Drafts buyer-facing replies using only confirmed facts from the listing or
   seller-provided information, with explicit caveats for unknowns and a firm refusal to answer
   open factual questions as settled.
-version: 0.1.1
+version: 0.1.2
 ---
 
 # Buyer Enquiry Response

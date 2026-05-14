@@ -12,7 +12,7 @@
         "repo": "paulieb89/estate-agent-england"
       },
       "description": "Compliance-aware property listing, market-comparison, and seller-onboarding tools for residential estate agents in England. Reviews listings for material information gaps and risky claims, drafts professional copy, summarises HMLR comparables, and generates seller onboarding checklists. Fixture-first, never legal advice.",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "author": {
         "name": "BOUCH"
       },

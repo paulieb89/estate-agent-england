@@ -12,7 +12,7 @@ from pathlib import Path
 PLUGIN_ROOT = Path(__file__).parent.parent
 
 # Directories to scan
-PY_FILES = list(PLUGIN_ROOT.glob("scripts/*.py")) + list(PLUGIN_ROOT.glob("mcp/*.py"))
+PY_FILES = list(PLUGIN_ROOT.glob("scripts/*.py"))
 MD_FILES = (
     list(PLUGIN_ROOT.glob("skills/*/SKILL.md"))
     + list(PLUGIN_ROOT.glob("agents/*.md"))

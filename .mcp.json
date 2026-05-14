@@ -1,22 +1,8 @@
 {
   "mcpServers": {
-    "estate-agent-data": {
-      "command": "uv",
-      "args": [
-        "run",
-        "--project",
-        "${PLUGIN_ROOT}",
-        "python",
-        "${PLUGIN_ROOT}/mcp/estate_agent_data_server.py"
-      ],
-      "env": {
-        "EPC_API_EMAIL": "${EPC_API_EMAIL}",
-        "EPC_API_KEY": "${EPC_API_KEY}",
-        "HMLR_CLIENT_ID": "${HMLR_CLIENT_ID}",
-        "HMLR_CLIENT_SECRET": "${HMLR_CLIENT_SECRET}",
-        "ESTATE_AGENT_PLUGIN_MODE": "${ESTATE_AGENT_PLUGIN_MODE:-fixture}",
-        "ESTATE_AGENT_PLUGIN_ROOT": "${PLUGIN_ROOT}"
-      }
+    "property-shared": {
+      "type": "http",
+      "url": "https://property-shared.fly.dev/mcp"
     }
   }
 }

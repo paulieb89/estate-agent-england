@@ -34,6 +34,24 @@ Before starting the review, read:
 Read `$PLUGIN_ROOT/references/england-estate-agent-compliance.md` if compliance questions arise about
 redress scheme obligations, AML registration, or Estate Agents Act 1979 requirements.
 
+### Step 1.5 — Verify EPC Against the Register (if postcode available)
+
+If the listing includes a postcode, call `property_epc` from the property-shared MCP server:
+
+```
+property_epc(postcode = "<postcode>", address = "<address if available>")
+```
+
+Compare the returned certificate against the listing's stated EPC rating/band. Flag in the output if:
+- No certificate is found for the postcode — EPC may be missing or the property has never been
+  assessed; this must be investigated before listing
+- The stated rating/band differs from the register (e.g. listing says C, register shows D)
+- The certificate is expired — `lodgement_date` more than 10 years before today; an expired EPC is
+  not valid for a property listing in England and a new assessment is required
+- The certificate has a different property address — may indicate a mismatched or stale record
+
+If `property_epc` returns no result, note this in Missing Information; do not infer the EPC rating.
+
 ### Step 2 — Run the Validator (JSON input only)
 
 If the input is a JSON file, run:

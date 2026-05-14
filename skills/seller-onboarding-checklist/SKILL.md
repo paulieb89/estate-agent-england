@@ -8,7 +8,7 @@ description: >
   seller/vendor information request checklist for England residential sales, covering all material
   information categories with unknown/needs-verification states and appropriate professional referral
   notes.
-version: 0.1.0
+version: 0.1.1
 ---
 
 # Seller Onboarding Checklist

@@ -7,7 +7,7 @@ description: >
   a listing", "check whether a listing is misleading", or "review a listing for material information
   gaps". Provides a structured compliance review of a UK residential property listing for England,
   identifying missing material information, unsupported claims, risky language, and misleading omissions.
-version: 0.1.0
+version: 0.1.1
 ---
 
 # Property Listing Review

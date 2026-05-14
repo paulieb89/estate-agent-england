@@ -7,7 +7,7 @@ description: >
   up a property". Drafts a professional residential sales listing for England from structured seller
   notes or property details, separating confirmed facts from assumptions and using restrained
   UK estate-agency prose.
-version: 0.1.0
+version: 0.1.1
 ---
 
 # Property Listing Draft
